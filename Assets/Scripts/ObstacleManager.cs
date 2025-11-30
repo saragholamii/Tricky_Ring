@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class ObstacleManager : MonoBehaviour
 {
+    public static ObstacleManager instance;
+    
     [Header("Obstacle Settings")]
     public GameObject obstaclePrefab;
     public Transform center;
@@ -17,9 +19,12 @@ public class ObstacleManager : MonoBehaviour
     public int maxObstacles = 10;
 
     private List<GameObject> obstacles = new List<GameObject>();
-
-    private float obstacleHeight;
     
+    private void Start()
+    {
+        instance = this;
+        AddObstacle();
+    }
 
     [ContextMenu("OnSquareCollected")]
     public void OnSquareCollected()
