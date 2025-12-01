@@ -33,6 +33,11 @@ public class ScoreManager : MonoBehaviour
         if(CheckHighScore())
             PlayerPrefs.SetInt("HighScore", score);
     }
+
+    public void UpdateLastScore()
+    {
+        PlayerPrefs.SetInt("LastScore", score);
+    }
     
     private bool CheckHighScore()
     {
