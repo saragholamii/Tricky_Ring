@@ -7,6 +7,7 @@ public class GameOverManager : MonoBehaviour
     public static GameOverManager instance;
     public GameObject gameOverPanel;
     public GameObject gamePanel;
+    public AudioSource audioSource;
     
     void Start()
     {
@@ -17,6 +18,7 @@ public class GameOverManager : MonoBehaviour
     {
         gamePanel.SetActive(false);
         gameOverPanel.SetActive(true);
+        audioSource.Pause();
         
         ScoreManager.instance.UpdateHighScore();
     }

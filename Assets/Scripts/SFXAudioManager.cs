@@ -12,6 +12,7 @@ public class SFXAudioManager : MonoBehaviour
     private void Start()
     {
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void PlaySFX(string sfxName)

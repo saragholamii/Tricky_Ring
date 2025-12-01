@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PauseManager : MonoBehaviour
 {
    public GameObject panel;
+   public AudioSource audioSource;
    
    private bool paused = false;
    
@@ -21,12 +22,14 @@ public class PauseManager : MonoBehaviour
       {
          paused = true;
          panel.SetActive(true);
+         audioSource.Pause();
          Time.timeScale = 0;
          return;
       }
      
       paused = false;
       panel.SetActive(false);
+      audioSource.Play();
       Time.timeScale = 1;
       
    }
