@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
         {
             Destroy(collision.gameObject);
             ObstacleManager.instance.OnSquareCollected();
+            ScoreManager.instance.UpdateScore();
             SquareManager.instance.AddSquare();
         }
         else if (collision.CompareTag("Obstacle"))
