@@ -28,15 +28,15 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
+    public void UpdateHighScore()
+    {
+        if(CheckHighScore())
+            PlayerPrefs.SetInt("HighScore", score);
+    }
+    
     private bool CheckHighScore()
     {
         return score > highScore;
     }
-
-    private void UpdateHighScore(int newHighScore)
-    {
-        PlayerPrefs.SetInt("HighScore", newHighScore);
-    }
-    
     
 }

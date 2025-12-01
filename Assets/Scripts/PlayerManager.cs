@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class PlayerManager : MonoBehaviour
 {
     public GameObject player;
-    public float speed;
+    public Transform center;
 
     public float innerRadius;
     public float outerRadius;
@@ -22,7 +22,6 @@ public class PlayerManager : MonoBehaviour
     
     private void Update()
     {
-        transform.Rotate(new Vector3(0, 0, speed * Time.deltaTime));
         
 #if UNITY_STANDALONE || UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
@@ -49,7 +48,7 @@ public class PlayerManager : MonoBehaviour
     {
         currentRadius = Mathf.Approximately(currentRadius, innerRadius) ? outerRadius : innerRadius;
         
-        Vector3 dir = (player.transform.position - transform.position).normalized;
-        player.transform.position = transform.position + dir * currentRadius;
+        Vector3 dir = (player.transform.position - center.transform.position).normalized;
+        player.transform.position = center.transform.position + dir * currentRadius;
     }
 }
