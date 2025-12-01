@@ -144,7 +144,7 @@ TextureImporter:
         width: 277
         height: 106
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,6 +152,27 @@ TextureImporter:
       bones: []
       spriteID: f9e3498fb2e414349881fa9a230da739
       internalID: -81180881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oval-Picsart-BackgroundRemover_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 273
+        width: 277
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37fa6a5f9b34374ea21b76767bc97af
+      internalID: -551927018
       vertices: []
       indices: 
       edges: []
@@ -168,6 +189,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       oval-Picsart-BackgroundRemover_0: -81180881
+      oval-Picsart-BackgroundRemover_1: -551927018
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

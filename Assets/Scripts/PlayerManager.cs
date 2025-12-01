@@ -26,8 +26,6 @@ public class PlayerManager : MonoBehaviour
 #if UNITY_STANDALONE || UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
-            if(EventSystem.current.IsPointerOverGameObject())
-                return;
             ToggleInOut();
         }
 #endif
@@ -36,8 +34,6 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
-            if(EventSystem.current.IsPointerOverGameObject())
-                return;
             ToggleInOut();
         }
 #endif
