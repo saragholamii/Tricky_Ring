@@ -19,6 +19,7 @@ public class GameOverManager : MonoBehaviour
         gamePanel.SetActive(false);
         gameOverPanel.SetActive(true);
         audioSource.Pause();
+        VibrationManager.instance.Vibrate();
         
         ScoreManager.instance.UpdateHighScore();
     }

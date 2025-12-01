@@ -42,6 +42,9 @@ public class PlayerManager : MonoBehaviour
     
     void ToggleInOut()
     {
+        if(player == null)
+            return;
+        
         currentRadius = Mathf.Approximately(currentRadius, innerRadius) ? outerRadius : innerRadius;
         
         Vector3 dir = (player.transform.position - center.transform.position).normalized;

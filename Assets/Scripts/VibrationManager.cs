@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,52 +6,58 @@ using UnityEngine.UI;
 
 public class VibrationManager : MonoBehaviour
 {
-    // Assign this in the Inspector using the UI Slider (Min=0, Max=1, Whole Numbers=True)
-    public Slider vibrationSlider; 
+    public static VibrationManager instance;
 
-    private bool _isVibrationEnabled = true;
+    private bool isVibrationEnabled;
 
-    void Start()
+    private void Awake()
     {
-        // Load saved state (1 for On, 0 for Off)
-        int savedState = PlayerPrefs.GetInt("VibrationEnabled", 1);
-        _isVibrationEnabled = (savedState == 1);
-        vibrationSlider.value = savedState;
-
-        // Link the slider event to the script method
-        vibrationSlider.onValueChanged.AddListener(SetVibrationToggle);
-    }
-
-    public void SetVibrationToggle(float value)
-    {
-        // Value will be 0 (Off) or 1 (On) because Whole Numbers is checked
-        _isVibrationEnabled = (value == 1);
-        
-        PlayerPrefs.SetInt("VibrationEnabled", _isVibrationEnabled ? 1 : 0);
-        PlayerPrefs.Save();
-
-        Debug.Log("Vibration Toggled: " + _isVibrationEnabled);
-        
-        // Provide haptic feedback instantly when the user enables it
-        if (_isVibrationEnabled)
+        if (instance == null)
         {
-            DoVibrate();
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
-    // Call this method whenever you want the phone to vibrate in your game
-    public void DoVibrate()
+    private void Start()
     {
-        if (_isVibrationEnabled)
+        int savedState = PlayerPrefs.GetInt("VibrationEnabled", 1);
+        SetVibrationEnabled(savedState == 1);
+    }
+
+    public void SetVibrationEnabled(bool isEnabled)
+    {
+        isVibrationEnabled = isEnabled;
+        
+        if (!isEnabled)
         {
-            // The Handheld.Vibrate() function is the cross-platform Unity call.
-            Handheld.Vibrate(); 
+            StopVibration();
         }
     }
     
-    // Public getter to check the state from other scripts
-    public bool IsVibrationEnabled()
+    public void Vibrate(long milliseconds = 250)
     {
-        return _isVibrationEnabled;
+        if (isVibrationEnabled)
+        {
+#if UNITY_ANDROID || UNITY_IOS
+            Handheld.Vibrate();
+#elif UNITY_EDITOR
+            Debug.Log("Vibrate: Testing on Editor (Duration: " + milliseconds + "ms)");
+#endif
+        }
     }
+    
+    public void StopVibration()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        Handheld.CancelVibrations(); 
+#elif UNITY_EDITOR
+        Debug.Log("Vibrate: Stop/Cancel Called on Editor.");
+#endif
+    }
+    
 }
