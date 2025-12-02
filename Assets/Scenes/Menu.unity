@@ -2437,6 +2437,7 @@ GameObject:
   - component: {fileID: 849980526}
   - component: {fileID: 849980527}
   - component: {fileID: 849980528}
+  - component: {fileID: 849980529}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2582,6 +2583,23 @@ MonoBehaviour:
   shopButton: {fileID: 765307316}
   startButton: {fileID: 1110139848}
   leaderboardButton: {fileID: 1957822152}
+--- !u!114 &849980529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849980518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dfe342b5d2072c4dbe5eea1afac24cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visibleCount: 15
+  rowPool: []
+  rowPrefab: {fileID: 2501305277266047766, guid: 0deba280a051be348921321136ac745b, type: 3}
+  scrollRect: {fileID: 117223973}
+  content: {fileID: 1334867866}
 --- !u!1 &989371406
 GameObject:
   m_ObjectHideFlags: 0

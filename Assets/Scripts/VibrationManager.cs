@@ -32,11 +32,6 @@ public class VibrationManager : MonoBehaviour
     public void SetVibrationEnabled(bool isEnabled)
     {
         isVibrationEnabled = isEnabled;
-        
-        if (!isEnabled)
-        {
-            StopVibration();
-        }
     }
     
     public void Vibrate(long milliseconds = 250)
@@ -51,13 +46,5 @@ public class VibrationManager : MonoBehaviour
         }
     }
     
-    public void StopVibration()
-    {
-#if UNITY_ANDROID || UNITY_IOS
-        Handheld.CancelVibrations(); 
-#elif UNITY_EDITOR
-        Debug.Log("Vibrate: Stop/Cancel Called on Editor.");
-#endif
-    }
     
 }

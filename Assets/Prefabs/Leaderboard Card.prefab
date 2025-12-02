@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 3579032390200979757}
   - component: {fileID: 68497075469324977}
   - component: {fileID: 4681409901429995050}
+  - component: {fileID: -787664460876891201}
   m_Layer: 5
   m_Name: Leaderboard Card
   m_TagString: Untagged
@@ -282,6 +283,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-787664460876891201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501305277266047766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8c2b3f5d1b3dd4cbbf4a0d049d825f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rankText: {fileID: 2074786394035645323}
+  nameText: {fileID: 1555288175055761460}
+  scoreText: {fileID: 3828821092086944428}
 --- !u!1 &6108994376108959583
 GameObject:
   m_ObjectHideFlags: 0
