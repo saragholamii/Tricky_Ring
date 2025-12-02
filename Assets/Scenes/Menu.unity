@@ -217,7 +217,6 @@ GameObject:
   - component: {fileID: 117223972}
   - component: {fileID: 117223975}
   - component: {fileID: 117223974}
-  - component: {fileID: 117223973}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -245,36 +244,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -111.865105}
   m_SizeDelta: {x: 0, y: -223.72978}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &117223973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117223971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Content: {fileID: 1334867866}
-  m_Horizontal: 1
-  m_Vertical: 1
-  m_MovementType: 1
-  m_Elasticity: 0.1
-  m_Inertia: 1
-  m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
-  m_Viewport: {fileID: 244485561}
-  m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 0}
-  m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 2
-  m_HorizontalScrollbarSpacing: -3
-  m_VerticalScrollbarSpacing: -3
-  m_OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &117223974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2437,7 +2406,6 @@ GameObject:
   - component: {fileID: 849980526}
   - component: {fileID: 849980527}
   - component: {fileID: 849980528}
-  - component: {fileID: 849980529}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2583,23 +2551,6 @@ MonoBehaviour:
   shopButton: {fileID: 765307316}
   startButton: {fileID: 1110139848}
   leaderboardButton: {fileID: 1957822152}
---- !u!114 &849980529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849980518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dfe342b5d2072c4dbe5eea1afac24cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visibleCount: 15
-  rowPool: []
-  rowPrefab: {fileID: 2501305277266047766, guid: 0deba280a051be348921321136ac745b, type: 3}
-  scrollRect: {fileID: 117223973}
-  content: {fileID: 1334867866}
 --- !u!1 &989371406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3602,7 +3553,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1334867866}
+  - component: {fileID: 1334867868}
   - component: {fileID: 1334867867}
+  - component: {fileID: 1334867869}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -3638,23 +3591,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 1334867865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 21
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 1
-  m_Spacing: 1
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.003921569}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1334867868
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334867865}
+  m_CullTransparentMesh: 1
+--- !u!114 &1334867869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334867865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dfe342b5d2072c4dbe5eea1afac24cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalRows: 5000
+  visibleRows: 15
+  rowPrefab: {fileID: 2501305277266047766, guid: 0deba280a051be348921321136ac745b, type: 3}
+  maskParent: {fileID: 244485561}
+  dragSpeed: 1
+  inertiaDeceleration: 6
+  velocityDamp: 10
 --- !u!1 &1335889914
 GameObject:
   m_ObjectHideFlags: 0
