@@ -82,15 +82,23 @@ public class LeaderboardManager : MonoBehaviour, IBeginDragHandler, IDragHandler
         SortByDailyScore();
     }
     
-    void CreateRowPool()
+    public void CreateRowPool()
     {
         rowPool.Clear();
         rowDataIndex.Clear();
 
+        if (rtContent.childCount == 0)
+        {
+            for (int i = 0; i < visibleRows; i++)
+            {
+                Instantiate(rowPrefab, rtContent, false);
+            }
+        }
+        
         // create rows and position them top-down
         for (int i = 0; i < visibleRows; i++)
         {
-            GameObject go = Instantiate(rowPrefab, rtContent, false);
+            var go = rtContent.GetChild(i).gameObject;
             RectTransform r = go.GetComponent<RectTransform>();
 
             // top anchored layout => y = -i * rowHeight
