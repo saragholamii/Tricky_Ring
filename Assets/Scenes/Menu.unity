@@ -3637,8 +3637,8 @@ MonoBehaviour:
   rowPrefab: {fileID: 2501305277266047766, guid: 0deba280a051be348921321136ac745b, type: 3}
   maskParent: {fileID: 244485561}
   dragSpeed: 1
-  inertiaDeceleration: 6
-  velocityDamp: 10
+  inertiaDeceleration: 100
+  velocityDamp: 4
 --- !u!1 &1335889914
 GameObject:
   m_ObjectHideFlags: 0

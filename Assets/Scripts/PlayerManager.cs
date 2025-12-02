@@ -13,8 +13,6 @@ public class PlayerManager : MonoBehaviour
     public float outerRadius;
     private float currentRadius;
     
-    bool isMobile = (Application.isMobilePlatform);
-    
     void Start()
     {
         currentRadius = outerRadius; 
@@ -26,15 +24,25 @@ public class PlayerManager : MonoBehaviour
 #if UNITY_STANDALONE || UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
-            ToggleInOut();
+            if (!EventSystem.current.IsPointerOverGameObject())
+                ToggleInOut();
         }
 #endif
         
 #if UNITY_ANDROID || UNITY_IOS
 
-        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        if (Input.touchCount > 0)
         {
-            ToggleInOut();
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+                    {
+                        ToggleInOut();
+                    }
+                }
+            }
         }
 #endif
         
