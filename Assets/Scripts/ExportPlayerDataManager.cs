@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using DefaultNamespace;
 using UnityEngine;
 
 public class ExportPlayerDataManager : MonoBehaviour
@@ -12,13 +13,15 @@ public class ExportPlayerDataManager : MonoBehaviour
     {
         playerData = new PlayerData
         {
-            Name = "sara",
-            LastScore = PlayerPrefs.GetInt("LastScore"),
-            HighestScore = PlayerPrefs.GetInt("HighScore"),
-            CurrentRank = 0,
-            MusicVolume =  PlayerPrefs.GetFloat("MusicVolume", 0.5f),
-            SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.75f),
-            IsVibrationEnabled = PlayerPrefs.GetInt("VibrationEnabled", 1) == 1
+            Name = PlayerPrefs.GetString(PlayerPrefsDictionary.PlayerName),
+            dailyScore = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerDailyScore),
+            HighestScore = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerHighScore),
+            DailyRank = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerDailyRank),
+            WeeklyRank = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerWeeklyRank),
+            AllTimeRank = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerAllTimeRank),
+            MusicVolume =  PlayerPrefs.GetFloat(PlayerPrefsDictionary.PlayerMusicVolume, 0.5f),
+            SFXVolume = PlayerPrefs.GetFloat(PlayerPrefsDictionary.PlayerSFXVolume, 0.75f),
+            IsVibrationEnabled = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerVibrationState, 1) == 1
         };
         
         // 2. Convert the PlayerData object to a JSON formatted string

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,7 @@ public class VibrationManager : MonoBehaviour
 
     private void Start()
     {
-        int savedState = PlayerPrefs.GetInt("VibrationEnabled", 1);
+        int savedState = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerVibrationState, 1);
         SetVibrationEnabled(savedState == 1);
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -79,7 +80,20 @@ public class LeaderboardManager : MonoBehaviour, IBeginDragHandler, IDragHandler
             });
         }
         
+        
+        
         SortByDailyScore();
+    }
+
+    private LeaderboardEntryData GenerateLocalPlayerLeaderboardEntry()
+    {
+        return new LeaderboardEntryData
+        {
+            name = PlayerPrefs.GetString(PlayerPrefsDictionary.PlayerName),
+            dailyScore = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerDailyScore, 0),
+            weeklyScore = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerWeeklyScore, 0),
+            allTimeScore = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerHighScore, 0)
+        };
     }
     
     public void CreateRowPool()

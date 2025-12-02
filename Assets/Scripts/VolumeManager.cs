@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -19,8 +20,8 @@ public class VolumeManager : MonoBehaviour
     void Start()
     {
         // Load saved values or set default, then update the UI
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
-        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.75f);
+        musicSlider.value = PlayerPrefs.GetFloat(PlayerPrefsDictionary.PlayerMusicVolume, 0.5f);
+        sfxSlider.value = PlayerPrefs.GetFloat(PlayerPrefsDictionary.PlayerSFXVolume, 0.75f);
         
         // Apply the loaded value immediately
         SetMusicVolume(musicSlider.value);
@@ -45,7 +46,7 @@ public class VolumeManager : MonoBehaviour
     {
         float db = LinearToDecibels(volume);
         mainMixer.SetFloat("MusicVolume", db);
-        PlayerPrefs.SetFloat("MusicVolume", volume);
+        PlayerPrefs.SetFloat(PlayerPrefsDictionary.PlayerMusicVolume, volume);
         PlayerPrefs.Save();
     }
 
@@ -53,7 +54,7 @@ public class VolumeManager : MonoBehaviour
     {
         float db = LinearToDecibels(volume);
         mainMixer.SetFloat("SFXVolume", db);
-        PlayerPrefs.SetFloat("SFXVolume", volume);
+        PlayerPrefs.SetFloat(PlayerPrefsDictionary.PlayerSFXVolume, volume);
         PlayerPrefs.Save();
     }
 }

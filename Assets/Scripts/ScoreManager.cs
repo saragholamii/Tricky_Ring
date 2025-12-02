@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using TMPro;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         instance = this;
-        highScore = PlayerPrefs.GetInt("HighScore", 0);
+        highScore = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerHighScore, 0);
         highScoreText.text = "high score : " + highScore;
     }
 
@@ -31,12 +32,12 @@ public class ScoreManager : MonoBehaviour
     public void UpdateHighScore()
     {
         if(CheckHighScore())
-            PlayerPrefs.SetInt("HighScore", score);
+            PlayerPrefs.SetInt(PlayerPrefsDictionary.PlayerHighScore, score);
     }
 
     public void UpdateLastScore()
     {
-        PlayerPrefs.SetInt("LastScore", score);
+        PlayerPrefs.SetInt(PlayerPrefsDictionary.PlayerHighScore, score);
     }
     
     private bool CheckHighScore()

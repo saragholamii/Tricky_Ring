@@ -7,9 +7,12 @@ using UnityEngine;
 public struct PlayerData
 {
     public string Name;
-    public int LastScore;
+    public int dailyScore;
+    public int WeeklyScore;
     public int HighestScore;
-    public int CurrentRank;
+    public int DailyRank;
+    public int WeeklyRank;
+    public int AllTimeRank;
     public float MusicVolume;
     public float SFXVolume;
     public bool IsVibrationEnabled;
