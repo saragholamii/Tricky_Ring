@@ -6,14 +6,14 @@ using UnityEngine;
 [Serializable]
 public struct PlayerData
 {
-    public string Name;
+    public string name;
     public int dailyScore;
-    public int WeeklyScore;
-    public int HighestScore;
-    public int DailyRank;
-    public int WeeklyRank;
-    public int AllTimeRank;
-    public float MusicVolume;
-    public float SFXVolume;
-    public bool IsVibrationEnabled;
+    public int weeklyScore;
+    public int highestScore;
+    public int dailyRank;
+    public int weeklyRank;
+    public int allTimeRank;
+    public float musicVolume;
+    public float sFXVolume;
+    public bool isVibrationEnabled;
 }

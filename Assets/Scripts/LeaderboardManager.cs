@@ -80,7 +80,8 @@ public class LeaderboardManager : MonoBehaviour, IBeginDragHandler, IDragHandler
             });
         }
         
-        
+        entries.Add(GenerateLocalPlayerLeaderboardEntry());
+        totalRows = entries.Count;
         
         SortByDailyScore();
     }
@@ -89,7 +90,7 @@ public class LeaderboardManager : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         return new LeaderboardEntryData
         {
-            name = PlayerPrefs.GetString(PlayerPrefsDictionary.PlayerName),
+            name = PlayerPrefs.GetString(PlayerPrefsDictionary.PlayerName, "Sara"),
             dailyScore = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerDailyScore, 0),
             weeklyScore = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerWeeklyScore, 0),
             allTimeScore = PlayerPrefs.GetInt(PlayerPrefsDictionary.PlayerHighScore, 0)
@@ -128,6 +129,16 @@ public class LeaderboardManager : MonoBehaviour, IBeginDragHandler, IDragHandler
             var rowComp = go.GetComponent<LeaderboardRow>();
             if (rowComp != null)
                 rowComp.SetData(dataIndex + 1, entries[dataIndex].name, entries[dataIndex].dailyScore);
+            
+            //check to change card UI
+            if (entries[dataIndex].name == (PlayerPrefs.GetString(PlayerPrefsDictionary.PlayerName, "Sara")))
+            {
+                r.gameObject.GetComponent<LeaderboardRow>().ChangeColorForLocalPlayer();
+            }
+            else
+            {
+                r.gameObject.GetComponent<LeaderboardRow>().ChangeColorForOtherPlayer();
+            }
         }
     }
 
@@ -168,12 +179,13 @@ public class LeaderboardManager : MonoBehaviour, IBeginDragHandler, IDragHandler
             int oldIndex = rowDataIndex[i];
 
             // went above top (center moved above topThreshold)
+            int newIndex = 0;
             if (r.anchoredPosition.y > topThreshold)
             {
                 // move down by visibleRows * rowHeight
                 r.anchoredPosition -= new Vector2(0f, visibleRows * rowHeight);
 
-                int newIndex = (oldIndex + visibleRows) % totalRows;
+                newIndex = (oldIndex + visibleRows) % totalRows;
                 rowDataIndex[i] = newIndex;
 
                 var comp = r.GetComponent<LeaderboardRow>();
@@ -186,13 +198,23 @@ public class LeaderboardManager : MonoBehaviour, IBeginDragHandler, IDragHandler
                 // move up by visibleRows * rowHeight
                 r.anchoredPosition += new Vector2(0f, visibleRows * rowHeight);
 
-                int newIndex = (oldIndex - visibleRows) % totalRows;
+                newIndex = (oldIndex - visibleRows) % totalRows;
                 if (newIndex < 0) newIndex += totalRows;
                 rowDataIndex[i] = newIndex;
 
                 var comp = r.GetComponent<LeaderboardRow>();
                 if (comp != null)
                     comp.SetData(newIndex + 1, entries[newIndex].name, entries[newIndex].dailyScore);
+            }
+            
+            //check to change card UI
+            if (entries[newIndex].name == "Sara")
+            {
+                r.gameObject.GetComponent<LeaderboardRow>().ChangeColorForLocalPlayer();
+            }
+            else
+            {
+                r.gameObject.GetComponent<LeaderboardRow>().ChangeColorForOtherPlayer();
             }
         }
     }

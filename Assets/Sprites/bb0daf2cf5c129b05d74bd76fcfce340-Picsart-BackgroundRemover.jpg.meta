@@ -156,6 +156,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: bb0daf2cf5c129b05d74bd76fcfce340-Picsart-BackgroundRemover_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 478
+        width: 526
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 140, y: 67, z: 148, w: 58}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0fae2ad26125d4a8ff9ca4607601ee
+      internalID: -1573740099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -168,6 +189,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       bb0daf2cf5c129b05d74bd76fcfce340-Picsart-BackgroundRemover_0: 1284860784
+      bb0daf2cf5c129b05d74bd76fcfce340-Picsart-BackgroundRemover_1: -1573740099
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
