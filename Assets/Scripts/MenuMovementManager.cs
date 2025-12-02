@@ -25,10 +25,10 @@ public class MenuMovementManager : MonoBehaviour
         switch (panelsParentState)
         {
             case 1:
-                newPos = new Vector3(panelParent.position.x + canvas.rect.width, panelParent.position.y, panelParent.position.z);
+                newPos = new Vector3((panelParent.position.x + canvas.rect.width * canvas.localScale.x) , panelParent.position.y, panelParent.position.z);
                 break;
             case 2:
-                newPos = new Vector3(panelParent.position.x + canvas.rect.width * 2, panelParent.position.y, panelParent.position.z);
+                newPos = new Vector3(panelParent.position.x + canvas.rect.width * canvas.localScale.x * 2, panelParent.position.y, panelParent.position.z);
                 break;
         }
 
@@ -46,10 +46,10 @@ public class MenuMovementManager : MonoBehaviour
         switch (panelsParentState)
         {
             case 0:
-                newPos = new Vector3(panelParent.position.x - canvas.rect.width, panelParent.position.y, panelParent.position.z);
+                newPos = new Vector3(panelParent.position.x - canvas.rect.width * canvas.localScale.x, panelParent.position.y, panelParent.position.z);
                 break;
             case 2:
-                newPos = new Vector3(panelParent.position.x + canvas.rect.width, panelParent.position.y, panelParent.position.z);
+                newPos = new Vector3(panelParent.position.x + canvas.rect.width * canvas.localScale.x, panelParent.position.y, panelParent.position.z);
                 break;
         }
 
@@ -67,10 +67,10 @@ public class MenuMovementManager : MonoBehaviour
         switch (panelsParentState)
         {
             case 0:
-                newPos = new Vector3(panelParent.position.x - canvas.rect.width * 2, panelParent.position.y, panelParent.position.z);
+                newPos = new Vector3(panelParent.position.x - canvas.rect.width * canvas.localScale.x * 2, panelParent.position.y, panelParent.position.z);
                 break;
             case 1:
-                newPos = new Vector3(panelParent.position.x - canvas.rect.width, panelParent.position.y, panelParent.position.z);
+                newPos = new Vector3(panelParent.position.x - canvas.rect.width * canvas.localScale.x, panelParent.position.y, panelParent.position.z);
                 break;
         }
         
